@@ -5,9 +5,7 @@ const randomIntNumber = function (min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
-  if (max <= min || min < 0) {
-    console.log('Задайте корректный диапазон');
-  }
+  return false;
 }
 
 //Функция, возвращающая случайное число с плавающей точкой из переданного диапазона включительно
@@ -15,15 +13,10 @@ const randomFloatNumber = function (minNumber, maxNumber, floatValue) {
   let totalNumber = 0;
 
   if (minNumber >= 0 && maxNumber > minNumber) {
+    floatValue = Math.round(floatValue);
     totalNumber = Math.random() * (maxNumber - minNumber) + minNumber;
     return totalNumber = totalNumber.toFixed(floatValue);
   }
-  if (maxNumber <= minNumber || minNumber < 0) {
-    console.log('Задайте корректный диапазон');
-  }
+  return false;
 }
-/*
-Во втором задании нет уточнения относительно значения параметра floatValue (количество_знаков_после_запятой).
-Сейчас по умолчанию в этом параметре может также передаваться дробное значение, что не очень правильно, как я считаю.
-Но в задании нет пояснения, какой должен быть результат, если пользователь передает аргумент floatValue дробный.
-*/
+

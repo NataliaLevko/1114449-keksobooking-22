@@ -38,8 +38,8 @@ let getLocation = function () {
       }
   }
 
-//в аргументах функции передается параметр locationValue
-let getOffer = function (locationValue) {
+//ничего не передается в параметрах функции
+let getOffer = function () {
   let types = ['palace', 'flat', 'house', 'bungalow'];
   let randomNumberType = randomIntNumber (0, types.length - 1);
   let photo = [
@@ -77,7 +77,7 @@ let getOffer = function (locationValue) {
 
   return {
     title: 'Новое интересное объявление',
-    address: String(locationValue.x) + ', ' + String(locationValue.y), //значение определяется в ключе address
+    address: '', //пустая строчка адреса
     price: randomIntNumber (0, 1000000),
     type: types [randomNumberType],
     rooms: randomIntNumber (0, 100),
@@ -99,29 +99,29 @@ function createTotalObject () {
 
     let newObj = {
     author: getAuthor(),
-    offer: getOffer(locationValue), //в вызов функции передается параметр locationValue
+    offer: getOffer(locationValue),
     location: locationValue,
     }
+    newObj.offer[address] = String(locationValue.x) + ', ' + String(locationValue.y);
   return newObj;
 }
 
 
-/*const createTotalArray = new Array(countNumber).fill(null).map(() =>
+const createTotalArray = new Array(countNumber).fill(null).map(() =>
 createTotalObject ());
-console.log(createTotalArray);*/
+console.log(createTotalArray);
 
 
 
 //или можно так:
-const createTotalArray = () => {
+/*const createTotalArray = () => {
 let resultArray = [];
 for (let i = 0; i < countNumber; i++) {
   resultArray.push(createTotalObject ());
 }
 return resultArray;
 }
-console.log(createTotalArray ());
-
+*/
 
 
 

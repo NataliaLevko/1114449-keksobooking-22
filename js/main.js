@@ -33,22 +33,22 @@ let getAuthor = function () {
 
 let getLocation = function () {
   return {
-      x: randomFloatNumber (35.65000, 35.70000, 5),
-      y: randomFloatNumber (139.70000, 139.80000, 5),
-      }
+    x: randomFloatNumber (35.65000, 35.70000, 5),
+    y: randomFloatNumber (139.70000, 139.80000, 5),
   }
+}
 
 //в аргументах функции передается параметр locationValue
 let getOffer = function (locationValue) {
   let types = ['palace', 'flat', 'house', 'bungalow'];
   let randomNumberType = randomIntNumber (0, types.length - 1);
   let photo = [
-      'http://o0.github.io/assets/images/tokyo/hotel1.jpg',
-      'http://o0.github.io/assets/images/tokyo/hotel2.jpg',
-      'http://o0.github.io/assets/images/tokyo/hotel3.jpg',
-    ];
+    'http://o0.github.io/assets/images/tokyo/hotel1.jpg',
+    'http://o0.github.io/assets/images/tokyo/hotel2.jpg',
+    'http://o0.github.io/assets/images/tokyo/hotel3.jpg',
+  ];
 
-    let createPhoto = () => {
+  let createPhoto = () => {
     let randomTotalPhotos = 0; //случайная длина из значений
     randomTotalPhotos = randomIntNumber(1, photo.length);
     let randomValue = [];
@@ -56,23 +56,23 @@ let getOffer = function (locationValue) {
       randomValue.push(photo[randomIntNumber (0, photo.length - 1)]);
     }
     return randomValue;
-    }
+  }
 
-    let feature = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
+  let feature = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
 
-    let createFeature = () => {
-      let randomTotalFeature = 0; //случайная длина из значений
-      randomTotalFeature = randomIntNumber(1, feature.length);
-      let randomValueFeature = [];
-      for (let i = 0; i < randomTotalFeature; i++) {
-          let currentValue = feature[randomIntNumber (0, feature.length - 1)];
-          if (randomValueFeature.includes(currentValue) !== true)  {
-              randomValueFeature.push(currentValue);
-          }
-          randomValueFeature.slice(currentValue);
+  let createFeature = () => {
+    let randomTotalFeature = 0; //случайная длина из значений
+    randomTotalFeature = randomIntNumber(1, feature.length);
+    let randomValueFeature = [];
+    for (let i = 0; i < randomTotalFeature; i++) {
+      let currentValue = feature[randomIntNumber (0, feature.length - 1)];
+      if (randomValueFeature.includes(currentValue) !== true)  {
+        randomValueFeature.push(currentValue);
       }
-      return randomValueFeature;
+      randomValueFeature.slice(currentValue);
     }
+    return randomValueFeature;
+  }
 
 
   return {
@@ -97,30 +97,21 @@ function createTotalObject () {
 
   let locationValue = getLocation ();
 
-    let newObj = {
+  let newObj = {
     author: getAuthor(),
     offer: getOffer(locationValue), //в вызов функции передается параметр locationValue
     location: locationValue,
-    }
+  }
   return newObj;
 }
 
 
-/*const createTotalArray = new Array(countNumber).fill(null).map(() =>
-createTotalObject ());
-console.log(createTotalArray);*/
+const createTotalArray = new Array(countNumber).fill(null).map(() =>
+  createTotalObject ());
+//console.log(createTotalArray);
 
 
 
-//или можно так:
-const createTotalArray = () => {
-let resultArray = [];
-for (let i = 0; i < countNumber; i++) {
-  resultArray.push(createTotalObject ());
-}
-return resultArray;
-}
-console.log(createTotalArray ());
 
 
 

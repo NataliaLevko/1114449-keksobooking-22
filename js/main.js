@@ -74,13 +74,14 @@ let getOffer = function (locationValue) {
     return randomValueFeature;
   }
 
+  let numberRooms = randomIntNumber (0, 100);
 
   return {
-    title: 'Новое интересное объявление',
+    title: `'Предлагается квартира на верхнем этаже, комнат - ${numberRooms}'`,
     address: String(locationValue.x) + ', ' + String(locationValue.y), //значение определяется в ключе address
     price: randomIntNumber (0, 1000000),
     type: types [randomNumberType],
-    rooms: randomIntNumber (0, 100),
+    rooms: numberRooms,   //randomIntNumber (0, 100),
     guests: randomIntNumber (0, 3),
     checkin: randomIntNumber(12, 14) + ':00',
     checkout: randomIntNumber(12, 14) + ':00',
@@ -109,6 +110,8 @@ function createTotalObject () {
 const createTotalArray = new Array(countNumber).fill(null).map(() =>
   createTotalObject ());
 //console.log(createTotalArray);
+
+
 
 
 

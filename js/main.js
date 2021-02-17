@@ -81,7 +81,7 @@ let getOffer = function (locationValue) {
     address: String(locationValue.x) + ', ' + String(locationValue.y), //значение определяется в ключе address
     price: randomIntNumber (0, 1000000),
     type: types [randomNumberType],
-    rooms: numberRooms,   //randomIntNumber (0, 100),
+    rooms: numberRooms,
     guests: randomIntNumber (0, 3),
     checkin: randomIntNumber(12, 14) + ':00',
     checkout: randomIntNumber(12, 14) + ':00',
@@ -105,7 +105,6 @@ function createTotalObject () {
   }
   return newObj;
 }
-
 
 const createTotalArray = new Array(countNumber).fill(null).map(() =>
   createTotalObject ());

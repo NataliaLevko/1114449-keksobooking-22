@@ -84,7 +84,7 @@ function createTotalObject () {
 
 const createTotalArray = new Array(countNumber).fill(null).map(() =>
   createTotalObject ());
-//console.log(createTotalArray);
 
+export {createTotalArray};
 
 

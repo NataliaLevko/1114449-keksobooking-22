@@ -1,4 +1,5 @@
-import './data.js';
+import {createTotalArray} from './data.js';
+console.log(createTotalArray);
 
 
 
